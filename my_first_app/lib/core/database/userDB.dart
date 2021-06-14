@@ -5,7 +5,7 @@ class UserDB {
 
   static Future<void> init() async => await Hive.openBox('boxName');
 
-  Future<void> saveData({required String name}) async {
+  void saveData({required String name}) async {
     Box box = Hive.box(boxName);
     await box.put('name', 'name');
   }

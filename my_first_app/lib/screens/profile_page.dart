@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 
 import 'package:my_first_app/core/database/userDB.dart';
 
@@ -30,7 +31,7 @@ class ProfileScreen extends StatelessWidget {
               children: [
                 TextFormField(
                   decoration: InputDecoration(
-                    hintText: 'Name',
+                    hintText: "Name",
                   ),
                   onSaved: (_val) {
                     _name = _val!;
@@ -51,9 +52,7 @@ class ProfileScreen extends StatelessWidget {
           onPressed: () {
             Navigator.of(context).pop("name result");
           },
-          icon: Icon(
-            Icons.arrow_back_ios,
-          )),
+          icon: Icon(Icons.arrow_back_ios_new_outlined)),
     );
   }
 }

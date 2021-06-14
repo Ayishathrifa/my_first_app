@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:my_first_app/core/controller/api.dart';
 import 'package:my_first_app/model/photos_model.dart';
-
+import 'package:my_first_app/env/keys.dart' as config;
 import 'package:my_first_app/screens/widget/photo_tile.dart';
+import 'package:dio/dio.dart';
 
 class PhotoGrid extends StatefulWidget {
   @override
@@ -16,8 +17,15 @@ class _PhotoGridState extends State<PhotoGrid> {
   Future<void> _fetchPhotos() async {
     PhotosAPI _photosAPI = PhotosAPI();
     List<PhotosModel> _tempPhotosData =
+        // ignore: invalid_return_type_for_catch_error
         await _photosAPI.fetchPhotos().catchError((err) => print(err));
     setState(() => _photosData = _tempPhotosData);
+  }
+
+  @override
+  void initState() {
+    _fetchPhotos();
+    super.initState();
   }
 
   @override

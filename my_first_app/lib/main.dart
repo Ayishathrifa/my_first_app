@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
-
+import 'dart:io';
 import 'package:my_first_app/env/hiveinit.dart';
 import 'package:my_first_app/screens/home_page.dart';
+import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:my_first_app/screens/profile_page.dart';
 
 import 'screens/home_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  hiveInit();
+  await hiveInit();
 
   runApp(MyApp());
 }

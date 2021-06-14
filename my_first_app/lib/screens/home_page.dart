@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
+import 'widget/top_bar.dart';
+import 'package:dio/dio.dart';
 
 import 'package:my_first_app/screens/profile_page.dart';
 import 'package:my_first_app/screens/widget/photo_grid.dart';
@@ -54,8 +56,8 @@ class _HomepageState extends State<Homepage> {
     return ValueListenableBuilder(
       valueListenable: Hive.box('profile').listenable(),
       builder: (BuildContext context, Box value, Widget? child) => TopBar(
-        title: value.get('name'),
-        subtitle: 'Developer',
+        title: 'Developer(Noobie)',
+        subtitle: value.get('name'),
         color: Color(0xff0B3D2E),
       ),
     );

@@ -24,6 +24,7 @@ class PhotosAPI {
           imgURL: _items['urls']['regular'],
           name: '',
         ));
+        print("object");
       }
       return _photosData;
     } catch (e) {
